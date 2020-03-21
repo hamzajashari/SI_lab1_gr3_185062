@@ -2,13 +2,13 @@ class Item {
 	int id;
 	String name;
 	double price;
-    char tip;
+	char tip;
 
-	public Item(int id, String name, double price, char ddv) {
+	public Item(int id, String name, double price, char tip) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.ddv = ddv;
+		this.tip = tip;
 	}
 
 	public void setId(int id) {
@@ -23,8 +23,8 @@ class Item {
 		this.price = price;
 	}
 
-	public void setDdv(char ddv) {
-		this.ddv = ddv;
+	public void settip(char tip) {
+		this.tip = tip;
 	}
 
 	public int getId() {
@@ -39,8 +39,8 @@ class Item {
 		return price;
 	}
 
-	public char getDdv() {
-		return ddv;
+	public char gettip() {
+		return tip;
 	}
 	//TODO add variable.
 
@@ -48,8 +48,27 @@ class Item {
 
 	//TODO setters and getters
 
-	double taxReturn () {
+	double taxReturn() {
 		//TODO
-		return price*0.15;
+		return price * 0.15;
+	}
+
+	@Override
+	public String toString() {
+		return "Item{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", price=" + price +
+				", tip=" + tip +" taxReturn= "+ taxReturn();
+	}
+}
+
+class Receipt {
+	ArrayList<Item> lista = new ArrayList<>();
+	public void print() {
+
+		for (int i = 0; i < lista.size(); i++) {
+			System.out.println(lista.get(i).toString());
+		}
 	}
 }
